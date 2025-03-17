@@ -3,7 +3,7 @@
 #include <cctype>
 #include <cmath>
 
-unsigned int faStr1(const char *str) {
+unsigned int faStr1(const char* str) {
 	unsigned int count = 0;
 	bool inWord = false;
 	bool digitInWord = false;
@@ -11,11 +11,13 @@ unsigned int faStr1(const char *str) {
 	while (*str) {
 		if (*str != ' ' && !inWord) {
 			inWord = true;
-		} else if (*str == ' ' && inWord) {
+		}
+		else if (*str == ' ' && inWord) {
 			inWord = false;
 			if (!digitInWord) {
 				count++;
-			} else {
+			}
+			else {
 				digitInWord = false;
 			}
 		}
@@ -26,11 +28,11 @@ unsigned int faStr1(const char *str) {
 	}
 	if (!digitInWord && inWord) {
 		count++;
-	}		
+	}
 	return count;
 }
 
-unsigned int faStr2(const char *str) {
+unsigned int faStr2(const char* str) {
 	unsigned int count = 0;
 	bool inWord = false;
 	bool firstUp = false;
@@ -40,17 +42,20 @@ unsigned int faStr2(const char *str) {
 		if (*str != ' ' && !inWord) {
 			if (*str > -1 && *str < 256 && std::isupper(*str)) {
 				firstUp = true;
-			} else {
+			}
+			else {
 				firstUp = false;
 			}
 			inWord = true;
 			isLowercase = true;
-		} else if (*str == ' ' && inWord) {
+		}
+		else if (*str == ' ' && inWord) {
 			inWord = false;
 			if (firstUp && isLowercase) {
 				count++;
 			}
-		} else if (firstUp) {
+		}
+		else if (firstUp) {
 			if (!(*str > -1 && *str < 256 && std::islower(*str))) {
 				isLowercase = false;
 			}
@@ -63,7 +68,7 @@ unsigned int faStr2(const char *str) {
 	return count;
 }
 
-unsigned int faStr3(const char *str) {
+unsigned int faStr3(const char* str) {
 	unsigned int count = 0;
 	int sumLenght = 0;
 	int currentLenght = 0;
@@ -73,7 +78,8 @@ unsigned int faStr3(const char *str) {
 		if (*str != ' ' && !inWord) {
 			count++;
 			inWord = true;
-		} else if (*str == ' ' && inWord) {
+		}
+		else if (*str == ' ' && inWord) {
 			inWord = false;
 			sumLenght += currentLenght;
 			currentLenght = 0;
