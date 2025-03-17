@@ -77,5 +77,5 @@ unsigned int faStr3(const char *str) {
 	}
 	if (inWord)
 		sumLenght += currentLenght;
-	return round(sumLenght / (float)count);
+	return std::round(sumLenght / (float)count);
 }
