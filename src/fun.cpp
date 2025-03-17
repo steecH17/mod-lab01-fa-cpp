@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <iostream>
+#include <cctype>
+#include <cmath>
 
 unsigned int faStr1(const char *str) {
 	int count = 0;
@@ -17,7 +18,7 @@ unsigned int faStr1(const char *str) {
 			else
 				digitInWord = false;
 		}
-		if (*str > -1 && *str < 256 && isdigit(*str))
+		if (*str > -1 && *str < 256 && std::isdigit(*str))
 			digitInWord = true;
 		str++;
 	}
@@ -33,7 +34,7 @@ unsigned int faStr2(const char *str) {
 	bool isLowercase = false;
 	while (*str) {
 		if (*str != ' ' && inWord == false) {
-			if (*str > -1 && *str < 256 && isupper(*str))
+			if (*str > -1 && *str < 256 && std::isupper(*str))
 				firstUp = true;
 			else
 				firstUp = false;
@@ -46,7 +47,7 @@ unsigned int faStr2(const char *str) {
 				count++;
 		}
 		else if (firstUp)
-			if (!(*str > -1 && *str < 256 && islower(*str)))
+			if (!(*str > -1 && *str < 256 && std::islower(*str)))
 				isLowercase = false;
 		str++;
 	}
